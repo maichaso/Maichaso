@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ちゃそてぃあ｜ファンテア[fantea]</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: white;
+      color: black;
+      font-family: Arial;
+      margin-top: 20%;
+    }
+
+    img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    #sub {
+      font-size: 18px;
+      color: gray;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 18px;
+    }
+
+    #btn {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    video {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     object-fit: cover;
+     z-index: -1;
+    }
+
+    .spawn-img {
+     position: fixed;
+     width: 600px;
+     pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+     img {
+      width: 100px;
+     }
+
+     .spawn-img {
+      width: 100px; /* 見せられないよ貼ったらいじる */
+     }
+
+     body{
+      margin-top: 0;
+      height: 100vh;
+
+      flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     }
+
+     #btn {
+      font-size: 20px;
+     }
+
+     h1 {
+     font-size: 20px;
+     }
+
+     video {
+     object-fit: contain;
+     background-color: white;
+     }
+    
+    
+
+  </style>
+</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+
+<img src="kusari.png">
+
+<p id="sub">https://fantea.jp/maichaso/1218</p>
+<h1>外部サイトを開こうとしています。</h1>
+<button id="btn">開く</button>
+
+<video id="video" src="ero.mp4" autoplay muted playsinline loop></video>
+
+<script>
+  let positions = [];
+
+  function isTooClose(x, y) {
+  for (let p of positions) {
+    const dx = p.x - x;
+    const dy = p.y - y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < 150) return true;
+  }
+  return false;
+}
+
+  function createImage(x, y) {
+  const img = document.createElement("img");
+  img.src = "miserarenntyaso.png";
+  img.className = "spawn-img";
+
+  img.style.left = x + "px";
+  img.style.top = y + "px";
+
+  document.body.appendChild(img);
+  }
+
+  const btn = document.getElementById("btn");
+  const video = document.getElementById("video");
+
+  let clickCount = 0;
+
+  btn.onclick = () => {
+    btn.style.display = "none";
+    document.querySelector("img").style.display = "none";
+    document.querySelector("h1").style.display = "none";
+    document.getElementById("sub").style.display = "none";
+    video.style.display = "block";
+    video.play();
+
+ const size = window.innerWidth < 600 ? 100 : 600;
+
+ 
+  };
+
+
+document.body.addEventListener("click", (e) => {
+  if (video.style.display === "block") {
+
+    if (e.target.id === "btn") return;
+
+    clickCount++;
+
+  const margin = 100;
+  const size = window.innerWidth < 600 ? 100 : 600;
+
+let x, y;
+
+do {
+   x = Math.random() * (window.innerWidth - size - margin * 2) + margin;
+   y = Math.random() * (window.innerHeight - size - margin * 2) + margin;
+  } while (
+   x > window.innerWidth / 2 - 200 &&
+   x < window.innerWidth / 2 + 200 &&
+   y > window.innerHeight / 2 - 200 &&
+   y < window.innerHeight / 2 + 200
+  );
+
+  createImage(x, y);
+positions.push({ x, y });
+
+    if (clickCount >= 10) {
+      window.location.href = "https://xgf.nu/u6LxV";
+    }
+  }
+});
+
+
+</script>
+
+</body>
+</html>
