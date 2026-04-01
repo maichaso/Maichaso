@@ -5,6 +5,7 @@
   <title>ちゃそてぃあ｜ファンテア[fantea]</title>
   <style>
     body {
+      height: 100dvh;
       text-align: center;
       background-color: white;
       color: black;
@@ -59,7 +60,7 @@
      }
 
      .spawn-img {
-      width: 130px; /* 見せられないよ貼ったらいじる */
+      width: 150x; /* 見せられないよ貼ったらいじる */
      }
 
      body{
@@ -141,7 +142,7 @@
     video.style.display = "block";
     video.play();
 
- const size = window.innerWidth < 600 ? 100 : 600;
+ const size = window.innerWidth < 600 ? 150 : 600;
 
  
   };
@@ -155,13 +156,14 @@ document.body.addEventListener("click", (e) => {
     clickCount++;
 
   const margin = 100;
-  const size = window.innerWidth < 600 ? 100 : 600;
+  const size = window.innerWidth < 600 ? 150: 600;
 
+const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 let x, y;
 
 do {
    x = Math.random() * (window.innerWidth - size - margin * 2) + margin;
-   y = Math.random() * (window.innerHeight - size - margin * 2) + margin;
+   y = Math.random() * (vh - size - margin * 2) + margin;
   } while (
    x > window.innerWidth / 2 - 200 &&
    x < window.innerWidth / 2 + 200 &&
