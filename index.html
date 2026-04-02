@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ちゃそてぃあ｜ファンテア[fantea]</title>
   <style>
     body {
@@ -99,8 +100,6 @@
 
   </style>
 </head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
 
@@ -169,13 +168,16 @@ document.body.addEventListener("click", (e) => {
    const vw = window.innerWidth;
    const vh = window.innerHeight;
 
+   const offsetY = window.innerWidth < 600 ? 10 : -150;
+   
    let x, y;
+   let tries = 0;
 
    do {
-    const offsetY = window.innerWidth < 600 ? 10 : -150;
 
       x = Math.random() * (vw - size - margin * 2) + margin;
       y = Math.random() * (vh - size - margin * 2) + margin + offsetY;
+      if (tries > 50) break;
      } while (
      x > vw / 2 - 200 &&
      x < vw / 2 + 200 &&
@@ -187,7 +189,7 @@ document.body.addEventListener("click", (e) => {
      positions.push({ x, y });
 
      if (clickCount >= 10) {
-       window.location.href = "https://xgf.nu/u6LxV";
+       window.location.href = "https://youtu.be/IV1LNAZp-Cg";
       }
   }
 });
