@@ -57,7 +57,7 @@
 
     .spawn-img {
      position: fixed;
-     width: 60vw;
+     width: 60vh;
      height: auto;
      pointer-events: none;
      z-index: 10;
@@ -133,9 +133,9 @@ document.body.addEventListener("click", (e) => {
    const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
-   const size = vw * 0.6;      // 画面の20%
-   const margin = vw * 0.05;   // 5%
-   const avoid = vw * 0.15;    // 中央回避範囲
+   const size = vh * 0.6;      // 画面の20%
+   const margin = vh * 0.05;   // 5%
+   const avoid = vh * 0.15;    // 中央回避範囲
 
    let x, y;
 
