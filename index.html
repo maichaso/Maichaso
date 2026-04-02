@@ -156,28 +156,30 @@ document.body.addEventListener("click", (e) => {
 
     clickCount++;
 
-  const margin = 100;
-  const size = window.innerWidth < 600 ? 150: 600;
+   const margin = 100;
+   const size = window.innerWidth < 600 ? 150 : 600;
 
-const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-let x, y;
+   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+   const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
 
-do {
-   x = Math.random() * (window.innerWidth - size - margin * 2) + margin;
-   y = Math.random() * (vh - size - margin * 2) + margin;
-  } while (
-   x > window.innerWidth / 2 - 200 &&
-   x < window.innerWidth / 2 + 200 &&
-   y > vh / 2 - 200 &&
-   y < vh / 2 + 200
-  );
+   let x, y;
 
-  createImage(x, y);
-positions.push({ x, y });
+   do {
+      x = Math.random() * (vw - size - margin * 2) + margin;
+      y = Math.random() * (vh - size - margin * 2) + margin;
+     } while (
+      x > vw / 2 - 200 &&
+      x < vw / 2 + 200 &&
+      y > vh / 2 - 200 &&
+      y < vh / 2 + 200
+     );
 
-    if (clickCount >= 10) {
-      window.location.href = "https://xgf.nu/u6LxV";
-    }
+     createImage(x, y);
+     positions.push({ x, y });
+
+     if (clickCount >= 10) {
+       window.location.href = "https://xgf.nu/u6LxV";
+      }
   }
 });
 
