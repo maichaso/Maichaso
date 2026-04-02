@@ -140,8 +140,8 @@ document.body.addEventListener("click", (e) => {
    let x, y;
 
   do {
-     x = Math.random() * (vw - size - margin * 2) + margin;
-     y = Math.random() * (vh - size - margin * 2) + margin;
+     x = Math.random() * (vw - size);
+     y = Math.random() * (vh - size);
     } while (
     x > vw / 2 - avoid &&
     x < vw / 2 + avoid &&
