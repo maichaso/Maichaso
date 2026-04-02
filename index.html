@@ -57,7 +57,7 @@
 
     .spawn-img {
      position: absolute;
-     width: 1000px;
+     width: min(1000px, 40vw);
      pointer-events: none;
      z-index: 10;
     }
@@ -162,7 +162,7 @@ document.body.addEventListener("click", (e) => {
 
     clickCount++;
 
-   const margin = 100;
+   const margin = window.innerWidth < 600 ? 20 : 100;
    const size = window.innerWidth < 600 ? 150 : 600;
 
    const vw = window.innerWidth;
