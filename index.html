@@ -5,12 +5,18 @@
   <title>ちゃそてぃあ｜ファンテア[fantea]</title>
   <style>
     body {
+      position: relative;
+      overflow: hidden;
       height: 100dvh;
       text-align: center;
       background-color: white;
       color: black;
       font-family: Arial;
-      margin-top: 20%;
+      margin-top: 0%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     img {
@@ -43,15 +49,16 @@
      top: 0;
      left: 0;
      width: 100vw;
-     height: 100vh;
+     height: 100dvh;
      object-fit: cover;
-     z-index: -1;
+     z-index: 0;
     }
 
     .spawn-img {
-     position: fixed;
+     position: absolute;
      width: 1000px;
      pointer-events: none;
+     z-index: 10;
     }
 
     @media (max-width: 600px) {
@@ -159,19 +166,22 @@ document.body.addEventListener("click", (e) => {
    const margin = 100;
    const size = window.innerWidth < 600 ? 150 : 600;
 
-   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-   const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+   const vw = window.innerWidth;
+   const vh = window.innerHeight;
+   const offsetY = window.innerWidth < 600 ? -40 : -80;
 
    let x, y;
 
    do {
+    const offsetY = -150;
+
       x = Math.random() * (vw - size - margin * 2) + margin;
-      y = Math.random() * (vh - size - margin * 2) + margin;
+      y = Math.random() * (vh - size - margin * 2) + margin + offsetY;
      } while (
-      x > vw / 2 - 200 &&
-      x < vw / 2 + 200 &&
-      y > vh / 2 - 200 &&
-      y < vh / 2 + 200
+     x > vw / 2 - 200 &&
+     x < vw / 2 + 200 &&
+     y > vh / 2 - 200 + offsetY &&
+     y < vh / 2 + 200 + offsetY
      );
 
      createImage(x, y);
