@@ -60,7 +60,7 @@
      }
 
      .spawn-img {
-      width: 150x; /* 見せられないよ貼ったらいじる */
+      width: 150px; /* 見せられないよ貼ったらいじる */
      }
 
      body{
@@ -86,6 +86,7 @@
      object-fit: contain;
      background-color: white;
      }
+    }
     
     
 
@@ -167,8 +168,8 @@ do {
   } while (
    x > window.innerWidth / 2 - 200 &&
    x < window.innerWidth / 2 + 200 &&
-   y > window.innerHeight / 2 - 200 &&
-   y < window.innerHeight / 2 + 200
+   y > vh / 2 - 200 &&
+   y < vh / 2 + 200
   );
 
   createImage(x, y);
