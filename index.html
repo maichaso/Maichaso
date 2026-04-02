@@ -173,7 +173,7 @@ document.body.addEventListener("click", (e) => {
    let x, y;
 
    do {
-    const offsetY = -150;
+    const offsetY = window.innerWidth < 600 ? 0 : -150;
 
       x = Math.random() * (vw - size - margin * 2) + margin;
       y = Math.random() * (vh - size - margin * 2) + margin + offsetY;
