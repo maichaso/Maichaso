@@ -56,48 +56,13 @@
     }
 
     .spawn-img {
-     position: absolute;
-     width: min(1000px, 40vw);
+     position: fixed;
+     width: 60vw;
+     height: auto;
      pointer-events: none;
      z-index: 10;
     }
-
-    @media (max-width: 600px) {
-     img {
-      width: 100px;
-     }
-
-     .spawn-img {
-      width: 150px; /* 見せられないよ貼ったらいじる */
-     }
-
-     body{
-      margin-top: 0;
-      height: 100vh;
-
-      flex-direction: column;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-     }
-
-     #btn {
-      font-size: 20px;
-     }
-
-     h1 {
-     font-size: 20px;
-     }
-
-     video {
-     object-fit: contain;
-     background-color: white;
-     }
-    }
     
-    
-
   </style>
 </head>
 
@@ -130,11 +95,14 @@
   img.src = "miserarenntyaso.png";
   img.className = "spawn-img";
 
+  const vw = window.innerWidth;
+  const size = vw * 0.3;
+
   img.style.left = x + "px";
   img.style.top = y + "px";
 
   document.body.appendChild(img);
-  }
+}
 
   const btn = document.getElementById("btn");
   const video = document.getElementById("video");
@@ -162,26 +130,24 @@ document.body.addEventListener("click", (e) => {
 
     clickCount++;
 
-   const margin = window.innerWidth < 600 ? 20 : 100;
-   const size = window.innerWidth < 600 ? 150 : 600;
+   const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
-   const vw = window.innerWidth;
-   const vh = window.innerHeight;
-
-   const offsetY = window.innerWidth < 600 ? 150 : -150;
+   const size = vw * 0.6;      // 画面の20%
+   const margin = vw * 0.05;   // 5%
+   const avoid = vw * 0.15;    // 中央回避範囲
 
    let x, y;
 
-   do {
-
-      x = Math.random() * (vw - size - margin * 2) + margin;
-      y = Math.random() * (vh - size - margin * 2) + margin + offsetY;
-     } while (
-     x > vw / 2 - 200 &&
-     x < vw / 2 + 200 &&
-     y > vh / 2 - 200 + offsetY &&
-     y < vh / 2 + 200 + offsetY
-     );
+  do {
+     x = Math.random() * (vw - size - margin * 2) + margin;
+     y = Math.random() * (vh - size - margin * 2) + margin;
+    } while (
+    x > vw / 2 - avoid &&
+    x < vw / 2 + avoid &&
+    y > vh / 2 - avoid &&
+    y < vh / 2 + avoid 
+    );
 
      createImage(x, y);
      positions.push({ x, y });
