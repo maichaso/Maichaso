@@ -171,13 +171,11 @@ document.body.addEventListener("click", (e) => {
    const offsetY = window.innerWidth < 600 ? 150 : -150;
 
    let x, y;
-   let tries = 0;
 
    do {
 
       x = Math.random() * (vw - size - margin * 2) + margin;
       y = Math.random() * (vh - size - margin * 2) + margin + offsetY;
-      if (tries > 50) break;
      } while (
      x > vw / 2 - 200 &&
      x < vw / 2 + 200 &&
